@@ -7,8 +7,8 @@ import AddTaskModal from "./AddTaskModal";
 export default function TasksCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div className="bg-white rounded-[24px] p-8 shadow-sm border border-grey-10/50 h-full flex flex-col">
-      <div className="flex justify-between items-center mb-6">
+    <div className="h-full flex flex-col">
+      <div className="flex justify-between items-center mb-6 px-2">
         <h2 className="text-xl font-bold text-brand-navy">Tasks To Do</h2>
         <button 
           onClick={() => setIsModalOpen(true)}

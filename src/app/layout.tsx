@@ -21,9 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased text-foreground bg-[#F6F8FA] min-h-screen flex`}>
+      <body className={`${inter.variable} font-sans antialiased text-foreground bg-[#F6FAFD] min-h-screen flex`}>
         <Sidebar />
-        <div className="flex-1 ml-[100px] flex flex-col min-h-screen overflow-hidden">
+        <div className="flex-1 ml-[90px] flex flex-col min-h-screen overflow-hidden">
           <main className="flex-1 overflow-x-hidden overflow-y-auto">
             {children}
           </main>

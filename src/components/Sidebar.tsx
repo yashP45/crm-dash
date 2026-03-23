@@ -14,16 +14,19 @@ export default function Sidebar() {
   const isCustomers = pathname.startsWith("/customers");
 
   return (
-    <aside className="w-[100px] bg-white border-r border-grey-10 h-[100dvh] fixed left-0 top-0 flex flex-col items-center py-6 gap-8 z-50">
-      {/* Brand Logo Placeholder */}
-      <div className="w-12 h-12 bg-brand-navy rounded-lg flex items-center justify-center text-white mb-4 shadow-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-          <path d="m9 12 2 2 4-4" />
-        </svg>
+    <aside className="w-[90px] bg-white border-r border-[#EAEEF4] h-[100dvh] fixed left-0 top-0 flex flex-col items-center z-50">
+      
+      {/* Logo Block - Explicit 90x90 to align with Header's 90px height */}
+      <div className="w-[90px] h-[90px] flex items-center justify-center shrink-0 border-b border-[#EAEEF4]">
+        <div className="w-11 h-11 bg-brand-navy rounded-xl flex items-center justify-center text-white shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </div>
       </div>
 
-      <nav className="flex flex-col gap-6 w-full items-center">
+      <nav className="flex flex-col gap-5 w-full items-center pt-8">
         
         {/* Dashboard Link */}
         <Link href="/" className="w-12 h-12 bg-white hover:border-brand-blue border border-transparent rounded-full flex items-center justify-center group transition-all relative">

@@ -9,60 +9,49 @@ import Header from "@/components/Header";
 
 export default function Dashboard() {
   return (
-    <>
-      <Header title="Dashboard" />
-      <div className="p-8 max-w-[1400px] mx-auto 2xl:ml-0 2xl:max-w-none w-full">
-      {/* 
-        Dashboard Layout Grid 
-        Matches the 12-column grid concept from Style Guide
-        Left Main Area (approx 8 cols) | Right Sidebar Area (approx 4 cols)
-      */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+    <div className="flex flex-col h-full bg-[#F6FAFD]">
+      <Header title="Dashboard" leftBg="bg-[#F6FAFD]" rightBg="bg-[#EEF6FB]" />
+      
+      <div className="flex flex-1 overflow-hidden">
         
-        {/* LEFT COLUMN AREA (8 cols) */}
-        <div className="xl:col-span-8 flex flex-col gap-8">
+        {/* LEFT/MIDDLE MAIN AREA (Fluid) */}
+        <div className="flex-1 flex flex-col p-10 overflow-x-hidden overflow-y-auto">
           
-          {/* Top Row: Next Appt + Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="w-full">
-              <NextAppointmentCard />
-            </div>
+          <div className="grid grid-cols-1 xl:grid-cols-[268px_1fr] gap-8">
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Inner Left Column: Fixed ~268px width behavior on desktop */}
+            <div className="flex flex-col gap-8 w-full">
+              <NextAppointmentCard />
               <StatsCard title="Customers" value={78} type="customers" />
               <StatsCard title="Deals" value={136} type="deals" />
             </div>
-          </div>
+            
+            {/* Inner Right Column: Fluid scaling */}
+            <div className="flex flex-col gap-8 w-full">
+              <RecentDealsCard />
+              <ProjectTimelineCard />
+            </div>
 
-          {/* Middle Row: Recent Deals */}
-          <div className="w-full">
-            <RecentDealsCard />
-          </div>
-
-          {/* Bottom Row: Project Timeline / Activity */}
-          <div className="w-full">
-            <ProjectTimelineCard />
           </div>
           
         </div>
 
-        {/* RIGHT COLUMN AREA (4 cols) */}
-        <div className="xl:col-span-4 flex flex-col gap-8">
+        {/* RIGHT COLUMN AREA (Fixed 417px width, matching header split) */}
+        <div className="w-[417px] shrink-0 bg-[#EEF6FB] p-10 flex flex-col gap-8 overflow-y-auto">
           
           {/* Right Top: Customers */}
-          <div className="h-[430px]">
+          <div className="h-[316px] shrink-0">
             <CustomersListCard />
           </div>
 
           {/* Right Bottom: Tasks To Do */}
-          <div className="flex-1 min-h-[500px]">
+          <div className="flex-1">
             <TasksCard />
           </div>
           
         </div>
         
       </div>
-      </div>
-    </>
+    </div>
   );
 }

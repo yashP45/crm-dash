@@ -7,9 +7,16 @@ import AddDealModal from "./AddDealModal";
 interface HeaderProps {
   title?: string;
   primaryAction?: "dropdown" | "deal" | "customer" | "none";
+  leftBg?: string;
+  rightBg?: string;
 }
 
-export default function Header({ title = "Dashboard", primaryAction = "dropdown" }: HeaderProps) {
+export default function Header({ 
+  title = "Dashboard", 
+  primaryAction = "dropdown",
+  leftBg = "bg-[#F6FAFD]",
+  rightBg = "bg-white" 
+}: HeaderProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isCustomerModalOpen, setIsCustomerModalOpen] = useState(false);
   const [isDealModalOpen, setIsDealModalOpen] = useState(false);
@@ -26,12 +33,18 @@ export default function Header({ title = "Dashboard", primaryAction = "dropdown"
   }, []);
 
   return (
-    <header className="h-[100px] w-full flex items-center justify-between px-10 bg-white border-b border-grey-10 sticky top-0 z-40 shrink-0">
-      <h1 className="text-[28px] font-bold text-brand-navy tracking-tight">
-        {title}
-      </h1>
+    <header className="h-[90px] w-full flex items-center sticky top-0 z-40 shrink-0 border-b border-[#EAEEF4]">
+      
+      {/* Left Header Area */}
+      <div className={`flex-1 h-full flex items-center px-10 ${leftBg}`}>
+        <h1 className="text-2xl font-bold text-brand-navy leading-[40px]">
+          {title}
+        </h1>
+      </div>
 
-      <div className="flex items-center gap-4 text-sm font-medium">
+      {/* Right Header Area */}
+      <div className={`w-[417px] shrink-0 h-full flex items-center justify-end px-10 ${rightBg}`}>
+        <div className="flex items-center gap-4 text-sm font-medium">
         
         {primaryAction === "deal" && (
           <button 
@@ -55,9 +68,9 @@ export default function Header({ title = "Dashboard", primaryAction = "dropdown"
           <div className="relative" ref={dropdownRef}>
             <button 
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="bg-brand-blue hover:bg-brand-blue/90 text-white h-12 px-6 rounded-full flex items-center gap-2 transition-colors shadow-md shadow-brand-blue/20"
+              className="bg-brand-blue hover:bg-brand-blue/90 text-white w-[130px] h-[50px] rounded-[70px] flex items-center justify-center gap-3 pt-[10px] pr-[16px] pb-[10px] pl-[20px] transition-colors shadow-md shadow-brand-blue/20"
             >
-              Add New <Plus className="w-4 h-4 ml-1 opacity-80" />
+              Add New <Plus className="w-4 h-4 opacity-80" />
             </button>
 
             {isDropdownOpen && (
@@ -117,6 +130,7 @@ export default function Header({ title = "Dashboard", primaryAction = "dropdown"
             className="w-full h-full object-cover"
           />
         </div>
+      </div>
       </div>
 
       <AddCustomerModal isOpen={isCustomerModalOpen} onClose={() => setIsCustomerModalOpen(false)} />

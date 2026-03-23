@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function CustomersListCard() {
   return (
-    <div className="bg-white rounded-[24px] p-8 shadow-sm border border-grey-10/50 h-full">
+    <div className="h-full">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold text-brand-navy">Customers</h2>
         <button className="text-brand-blue text-sm font-semibold hover:underline">View All</button>
