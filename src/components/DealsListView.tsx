@@ -32,11 +32,11 @@ export default function DealsListView() {
           <h2 className="font-bold text-brand-navy">Total: 136 deals</h2>
           
           <div className="flex items-center gap-4">
-            <button className="flex items-center justify-between gap-2 px-6 h-12 rounded-full border border-grey-10 bg-white hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors">
+            <button className="flex items-center justify-between gap-[13px] w-[235px] h-[50px] rounded-[30px] border border-[#EAEEF4] bg-white pt-[10px] pr-[20px] pb-[10px] pl-[25px] hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors shadow-sm">
               <span>Sort by: Date Created</span>
               <ChevronDown className="w-4 h-4 text-grey-50" />
             </button>
-            <button className="flex items-center justify-between gap-2 px-6 h-12 rounded-full border border-grey-10 bg-white hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors">
+            <button className="flex items-center justify-between gap-[13px] w-[116px] h-[50px] rounded-[30px] border border-[#EAEEF4] bg-white pt-[10px] pr-[20px] pb-[10px] pl-[25px] hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors shadow-sm">
               <span>Filter</span>
               <Filter className="w-4 h-4 text-grey-50" />
             </button>
@@ -54,9 +54,9 @@ export default function DealsListView() {
         </div>
 
         {/* List Rows */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col">
           {dealsData.map((deal) => (
-            <div key={deal.id} className="grid grid-cols-[3fr_1fr_2fr_1fr_1.5fr_0.5fr] gap-4 bg-white rounded-2xl p-4 items-center border border-grey-10/50 shadow-sm hover:shadow-md transition-shadow">
+            <div key={deal.id} className="grid grid-cols-[3fr_1fr_2fr_1fr_1.5fr_0.5fr] gap-6 pl-3 pr-6 h-[79px] items-center border-b border-[#EAEEF4] hover:bg-brand-blue/5 transition-colors group">
               
               <div className="flex items-center gap-4">
                 <Link href={`/deals/${deal.id}`} className="w-10 h-10 rounded-full bg-grey-10 shrink-0 overflow-hidden hover:scale-105 transition-transform cursor-pointer">

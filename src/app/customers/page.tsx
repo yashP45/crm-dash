@@ -15,19 +15,19 @@ const listData = [
 
 export default function CustomersPage() {
   return (
-    <>
-      <Header title="Customers" primaryAction="customer" />
-      <main className="flex-1 overflow-x-hidden p-8 max-w-[1400px] mx-auto w-full">
+    <div className="flex flex-col min-h-full bg-[#F6FAFD]">
+      <Header title="Customers" primaryAction="customer" leftBg="bg-[#F6FAFD]" rightBg="bg-[#F6FAFD]" />
+      <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 w-full">
         
         <div className="flex items-center justify-between mb-8 px-4">
           <h2 className="font-bold text-brand-navy text-[17px]">Total: 78 customers</h2>
           
           <div className="flex items-center gap-4">
-            <button className="flex items-center justify-between gap-2 px-6 h-12 rounded-full border border-grey-10 bg-white hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors shadow-sm">
+            <button className="flex items-center justify-between gap-[13px] w-[235px] h-[50px] rounded-[30px] border border-[#EAEEF4] bg-white pt-[10px] pr-[20px] pb-[10px] pl-[25px] hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors shadow-sm">
               <span>Sort by: Date Created</span>
               <ChevronDown className="w-4 h-4 text-grey-50" />
             </button>
-            <button className="flex items-center justify-between gap-2 px-6 h-12 rounded-full border border-grey-10 bg-white hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors shadow-sm">
+            <button className="flex items-center justify-between gap-[13px] w-[116px] h-[50px] rounded-[30px] border border-[#EAEEF4] bg-white pt-[10px] pr-[20px] pb-[10px] pl-[25px] hover:border-brand-blue text-brand-navy font-medium text-sm transition-colors shadow-sm">
               <span>Filter</span>
               <Filter className="w-4 h-4 text-grey-50" />
             </button>
@@ -51,7 +51,7 @@ export default function CustomersPage() {
           {/* List Rows */}
           <div className="flex flex-col">
             {listData.map((customer) => (
-              <div key={customer.id} className="grid grid-cols-[3fr_2fr_2fr_3fr_0.5fr] gap-4 items-center px-8 py-5 border-b border-grey-10 group hover:bg-white/50 transition-colors">
+              <div key={customer.id} className="grid grid-cols-[3fr_2fr_2fr_3fr_0.5fr] gap-6 items-center px-4 h-[79px] border-b border-[#EAEEF4] group hover:bg-brand-blue/5 transition-colors">
                 
                 <div className="flex items-center gap-6">
                   <Link href={`/customers/${customer.id}`} className="w-11 h-11 rounded-full bg-grey-10 shrink-0 overflow-hidden hover:scale-105 transition-transform cursor-pointer">
@@ -85,6 +85,6 @@ export default function CustomersPage() {
         </div>
 
       </main>
-    </>
+    </div>
   );
 }

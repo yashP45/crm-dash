@@ -3,7 +3,7 @@ import { Building2 } from "lucide-react";
 
 export default function RecentDealsCard() {
   return (
-    <div className="bg-white rounded-[24px] p-8 shadow-sm border border-grey-10/50 h-full">
+    <div className="bg-white rounded-[12px] border border-[#EAEEF4] p-6 min-h-[392px] flex flex-col">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold text-brand-navy">Recent Deals</h2>
         <button className="text-brand-blue text-sm font-semibold hover:underline">View All</button>

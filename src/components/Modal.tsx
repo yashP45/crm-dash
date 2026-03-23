@@ -13,7 +13,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-navy/30 backdrop-blur-sm px-4">
-      <div className="bg-white rounded-[24px] w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative">
+      <div className="bg-white rounded-[12px] w-full max-w-[620px] max-h-[90vh] overflow-y-auto shadow-2xl relative">
         <div className="sticky top-0 bg-white z-10 flex items-center justify-between px-8 py-6 border-b border-grey-10">
           <h2 className="text-[22px] font-bold text-brand-navy tracking-tight">{title}</h2>
           <button 

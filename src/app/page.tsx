@@ -17,18 +17,20 @@ export default function Dashboard() {
         {/* LEFT/MIDDLE MAIN AREA (Fluid) */}
         <div className="flex-1 flex flex-col p-10 overflow-x-hidden overflow-y-auto">
           
-          <div className="grid grid-cols-1 xl:grid-cols-[268px_1fr] gap-8">
+          <div className="flex flex-col gap-8">
             
-            {/* Inner Left Column: Fixed ~268px width behavior on desktop */}
-            <div className="flex flex-col gap-8 w-full">
+            {/* Row 1: Next Appointment | Recent Deals */}
+            <div className="grid grid-cols-1 xl:grid-cols-[268px_1fr] gap-8 items-start">
               <NextAppointmentCard />
-              <StatsCard title="Customers" value={78} type="customers" />
-              <StatsCard title="Deals" value={136} type="deals" />
-            </div>
-            
-            {/* Inner Right Column: Fluid scaling */}
-            <div className="flex flex-col gap-8 w-full">
               <RecentDealsCard />
+            </div>
+
+            {/* Row 2: Stats Cards | Project Timeline */}
+            <div className="grid grid-cols-1 xl:grid-cols-[268px_1fr] gap-8 items-start">
+              <div className="flex flex-col gap-8">
+                <StatsCard title="Customers" value={78} type="customers" />
+                <StatsCard title="Deals" value={136} type="deals" />
+              </div>
               <ProjectTimelineCard />
             </div>
 
@@ -37,7 +39,7 @@ export default function Dashboard() {
         </div>
 
         {/* RIGHT COLUMN AREA (Fixed 417px width, matching header split) */}
-        <div className="w-[417px] shrink-0 bg-[#EEF6FB] p-10 flex flex-col gap-8 overflow-y-auto">
+        <div className="w-[417px] shrink-0 bg-[#EEF6FB] p-10 flex flex-col gap-4 overflow-y-auto">
           
           {/* Right Top: Customers */}
           <div className="h-[316px] shrink-0">
