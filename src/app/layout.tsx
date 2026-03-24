@@ -11,6 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "CRM Dashboard",
   description: "UniSouk CRM Dashboard Interface",
+  icons: { icon: "/Logo.png" },
 };
 
 export default function RootLayout({

@@ -57,14 +57,9 @@ export default function Sidebar() {
       {/* ── Desktop: vertical left rail (hidden on mobile) ── */}
       <aside className="hidden md:flex w-[90px] bg-white border-r border-[#EAEEF4] h-[100dvh] fixed left-0 top-0 flex-col items-center z-50">
         {/* Logo */}
-        <div className="w-[90px] h-[90px] flex items-center justify-center shrink-0 border-b border-[#EAEEF4]">
-          <div className="w-11 h-11 bg-brand-navy rounded-xl flex items-center justify-center text-white shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
-              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-              <path d="m9 12 2 2 4-4" />
-            </svg>
-          </div>
-        </div>
+      <div className="w-[90px] h-[90px] flex items-center justify-center shrink-0 border-b border-[#EAEEF4]">
+        <img src="/Logo.png" alt="Logo" className="w-12 h-12 object-contain" />
+      </div>
 
         <nav className="flex flex-col gap-5 w-full items-center pt-8 flex-1">
           {navLinks.map((link) => (
