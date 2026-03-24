@@ -28,8 +28,9 @@ This repository contains the frontend implementation of the UniSouk CRM Dashboar
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## AI Assistance
-This project was scaffolded and developed with the assistance of an agentic LLM (acting as an AI engineer). The AI was responsible for:
-1. Abstracting visual layout rules from the uploaded Figma snapshots into the concrete implementation plan.
-2. Rapidly scaffolding the standard Next.js 16 app framework with correct package installations (`lucide-react`, `tailwind-merge`).
-3. Generating boilerplate components with accurate Tailwind classes to replicate the design aesthetic, mapping standard mock data correctly into the views.
-4. Structuring a robust grid layout responsive system.
+This project was built with the help of **[Antigravity IDE](https://antigravity.dev)** — an agentic coding environment — using **Claude Sonnet** (Anthropic) and **Gemini** (Google DeepMind) models. Their contributions included:
+
+1. **Design interpretation** — Translating Figma snapshots into concrete Tailwind component layouts with accurate spacing, color tokens, and typography.
+2. **Scaffolding** — Setting up the Next.js 16 App Router structure, installing dependencies, and wiring up the root layout.
+3. **Component generation** — Producing typed React components (`NextAppointmentCard`, `DealsListView`, modals, etc.) with correct mock data bindings.
+4. **Responsive design** — Iteratively adding mobile-first breakpoints, converting tables to card views, and converting the sidebar to a bottom nav on small screens.
