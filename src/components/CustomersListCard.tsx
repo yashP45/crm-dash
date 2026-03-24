@@ -7,7 +7,7 @@ export default function CustomersListCard() {
     <div className="h-full">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold text-brand-navy">Customers</h2>
-        <button className="text-brand-blue text-sm font-semibold hover:underline">View All</button>
+        <Link href="/customers" className="text-brand-blue text-sm font-semibold hover:underline">View All</Link>
       </div>
 
       <div className="flex flex-col gap-6 mt-6">
