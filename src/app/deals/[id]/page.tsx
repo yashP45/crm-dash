@@ -36,7 +36,7 @@ export default function DealDetailPage({ params }: { params: { id: string } }) {
             <div className="flex items-center gap-16 px-8 py-5 bg-[#F6FAFD] border-b border-[#EAEEF4] shrink-0">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-grey-10 rounded-full shrink-0 overflow-hidden">
-                  <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Deanna" alt="Customer" className="w-full h-full object-cover" />
+                  <img src="/avatar1.jpg" alt="Customer" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-[13px] text-grey-50">Customer</p>

@@ -10,14 +10,14 @@ interface AddDealModalProps {
 }
 
 interface SelectedCustomer {
-  id: number;
+  id: string;
   name: string;
   email: string;
   imageUrl?: string;
 }
 
 const defaultCustomer: SelectedCustomer = {
-  id: 1,
+  id: "1",
   name: "Deanna Annis",
   email: "deannannis@gmail.com",
   imageUrl: undefined,
@@ -40,7 +40,7 @@ export default function AddDealModal({ isOpen, onClose }: AddDealModalProps) {
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-grey-10 overflow-hidden shrink-0">
                 <img
-                  src={selectedCustomer.imageUrl || `https://api.dicebear.com/7.x/notionists/svg?seed=${selectedCustomer.name}`}
+                  src={selectedCustomer.imageUrl || "/avatar1.jpg"}
                   alt={selectedCustomer.name}
                   className="w-full h-full object-cover"
                 />

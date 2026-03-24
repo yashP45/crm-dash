@@ -93,18 +93,19 @@ export const mockCustomers: Customer[] = [
     id: "1",
     name: "Deanna Annis",
     email: "deannannis@gmail.com",
+    imageUrl: "/avatar1.jpg"
   },
   {
     id: "2",
     name: "Andrea Willis",
     email: "andreawillis@gmail.com",
-    imageUrl: "/placeholder.png"
+    imageUrl: "/avatar2.jpg"
   },
   {
     id: "3",
     name: "Brent Rodrigues",
     email: "brodrigues@gmail.com",
-    imageUrl: "/placeholder.png"
+    imageUrl: "/avatar3.jpg"
   }
 ];
 

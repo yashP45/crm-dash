@@ -4,13 +4,13 @@ import { ChevronDown, Filter, UserRound, Pencil } from "lucide-react";
 import Link from "next/link";
 
 const listData = [
-  { id: 1, name: "Deanna Annis", email: "deannannis@gmail.com", phone: "999-999-9999", address: "475 Spruce Drive, Pittsburgh, PA 23592", avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Deanna" },
-  { id: 2, name: "George Gamble", email: "goeorgegamble@gmail.com", phone: "999-999-9999", address: "2213 Thorn Street, Glenrock, WY 12345", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=George" },
-  { id: 3, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Andrea1" },
-  { id: 4, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Andrea2" },
-  { id: 5, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Andrea3" },
-  { id: 6, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Andrea4" },
-  { id: 7, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Andrea5" },
+  { id: 1, name: "Deanna Annis", email: "deannannis@gmail.com", phone: "999-999-9999", address: "475 Spruce Drive, Pittsburgh, PA 23592", avatar: "/avatar1.jpg" },
+  { id: 2, name: "George Gamble", email: "goeorgegamble@gmail.com", phone: "999-999-9999", address: "2213 Thorn Street, Glenrock, WY 12345", avatar: "/avatar2.jpg" },
+  { id: 3, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "/avatar3.jpg" },
+  { id: 4, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "/avatar1.jpg" },
+  { id: 5, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "/avatar2.jpg" },
+  { id: 6, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "/avatar3.jpg" },
+  { id: 7, name: "Andrea Willis", email: "andreawillis@gmail.com", phone: "999-999-9999", address: "1952 Chicago Avenue, Fresno, PA 93711", avatar: "/avatar1.jpg" },
 ];
 
 export default function CustomersPage() {
