@@ -5,27 +5,25 @@ export default function ProjectTimelineCard() {
   const data = mockProjectProgress;
 
   return (
-    <div className="bg-white rounded-[12px] border border-[#EAEEF4] p-6 flex flex-col">
+    <div className="bg-white rounded-[12px] border border-[#EAEEF4] p-4 sm:p-6 flex flex-col">
       {/* Header Row */}
-      <div className="flex justify-between items-center pb-5 border-b border-[#EAEEF4] mb-5">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-grey-10 shrink-0">
-            {data.imageUrl && (
-              <img src={`https://api.dicebear.com/7.x/identicon/svg?seed=${data.addressTitle}`} alt="Property" className="w-full h-full object-cover" />
-            )}
+      <div className="flex justify-between items-center gap-2 pb-4 sm:pb-5 border-b border-[#EAEEF4] mb-4 sm:mb-5">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-grey-10 shrink-0">
+            <img src="/avatar2.jpg" alt="Property" className="w-full h-full object-cover" />
           </div>
-          <div>
-            <h3 className="font-bold text-brand-navy text-[15px]">{data.addressTitle}</h3>
-            <p className="text-grey-50 text-[13px]">{data.addressSub}</p>
+          <div className="min-w-0">
+            <h3 className="font-bold text-brand-navy text-[13px] sm:text-[15px] truncate">{data.addressTitle}</h3>
+            <p className="text-grey-50 text-[11px] sm:text-[13px] truncate">{data.addressSub}</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="text-brand-blue bg-brand-blue/10 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          <div className="text-brand-blue bg-brand-blue/10 px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-wide uppercase whitespace-nowrap">
             {data.status}
           </div>
-          <button className="w-7 h-7 rounded-full flex items-center justify-center text-brand-blue hover:bg-brand-blue/10 transition-colors">
-            <ArrowRight className="w-4 h-4" />
+          <button className="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-brand-blue hover:bg-brand-blue/10 transition-colors">
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         </div>
       </div>

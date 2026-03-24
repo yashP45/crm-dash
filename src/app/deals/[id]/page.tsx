@@ -26,14 +26,14 @@ export default function DealDetailPage({ params }: { params: { id: string } }) {
       <div className="flex flex-col bg-[#F6FAFD]">
         <Header title="Deal Details" primaryAction="none" leftBg="bg-[#F6FAFD]" rightBg="bg-[#EEF6FB]" />
 
-        {/* Body: Left col (customer strip + main content) | Right sidebar */}
-        <div className="flex items-stretch">
+        {/* Body: flex-col on mobile, flex-row on lg+ */}
+        <div className="flex flex-col lg:flex-row lg:items-stretch">
 
           {/* LEFT COLUMN */}
           <div className="flex-1 flex flex-col min-w-0">
 
             {/* Customer Info Strip */}
-            <div className="flex items-center gap-16 px-8 py-5 bg-[#F6FAFD] border-b border-[#EAEEF4] shrink-0">
+            <div className="flex flex-wrap items-center gap-6 md:gap-16 px-4 md:px-8 py-5 bg-[#F6FAFD] border-b border-[#EAEEF4] shrink-0">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-grey-10 rounded-full shrink-0 overflow-hidden">
                   <img src="/avatar1.jpg" alt="Customer" className="w-full h-full object-cover" />
@@ -54,27 +54,28 @@ export default function DealDetailPage({ params }: { params: { id: string } }) {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 p-8">
+            <div className="flex-1 p-4 md:p-8">
               {/* Address + Action Buttons */}
-              <div className="flex justify-between items-start mb-8">
-                <h2 className="text-[28px] font-bold text-brand-navy leading-tight">
+              <div className="flex justify-between items-start mb-6 md:mb-8">
+                <h2 className="text-[22px] md:text-[28px] font-bold text-brand-navy leading-tight">
                   {dealData.address},<br />{dealData.city}, {dealData.state} {dealData.zip}
                 </h2>
-                <div className="flex gap-3 mt-1">
+                <div className="flex gap-3 mt-1 shrink-0">
                   <button className="w-10 h-10 rounded-full border border-[#EAEEF4] flex items-center justify-center text-grey-50 hover:text-brand-pink hover:border-brand-pink transition-colors bg-white">
                     <Trash2 className="w-[18px] h-[18px]" />
                   </button>
                   <button
                     onClick={() => setEditOpen(true)}
-                    className="w-10 h-10 rounded-full border border-[#EAEEF4] flex items-center justify-center text-grey-50 hover:text-brand-blue hover:border-brand-blue transition-colors bg-white">
+                    className="w-10 h-10 rounded-full border border-[#EAEEF4] flex items-center justify-center text-grey-50 hover:text-brand-blue hover:border-brand-blue transition-colors bg-white"
+                  >
                     <Pencil className="w-[18px] h-[18px]" />
                   </button>
                 </div>
               </div>
 
               {/* Deal Info Grid + Image */}
-              <div className="flex gap-8">
-                <div className="flex-1 grid grid-cols-2 gap-y-8 gap-x-6">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+                <div className="flex-1 grid grid-cols-2 gap-y-6 md:gap-y-8 gap-x-6">
                   <div>
                     <p className="text-[13px] text-grey-50 mb-1">Progress</p>
                     <p className="font-bold text-brand-navy text-[15px]">{dealData.progress}</p>
@@ -104,14 +105,14 @@ export default function DealDetailPage({ params }: { params: { id: string } }) {
                     <p className="text-brand-navy/80 text-[15px] leading-relaxed">{dealData.specialInstructions}</p>
                   </div>
                 </div>
-                {/* Property Image Placeholder */}
-                <div className="w-[240px] h-[280px] bg-[#EAEEF4] rounded-[12px] shrink-0"></div>
+                {/* Property Image */}
+                <div className="w-full md:w-[240px] h-[200px] md:h-[280px] bg-[#EAEEF4] rounded-[12px] shrink-0" />
               </div>
             </div>
           </div>
 
-          {/* RIGHT SIDEBAR */}
-          <div className="w-[417px] shrink-0 bg-[#EEF6FB] p-6 flex flex-col gap-6 min-h-screen">
+          {/* RIGHT SIDEBAR — full width on mobile, fixed 417px on lg+ */}
+          <div className="lg:w-[417px] shrink-0 bg-[#EEF6FB] p-4 md:p-6 flex flex-col gap-6 lg:min-h-screen">
 
             {/* Record Activity Card */}
             <div className="bg-white rounded-[12px] border border-[#EAEEF4] p-6">
@@ -141,22 +142,22 @@ export default function DealDetailPage({ params }: { params: { id: string } }) {
               <div className="relative border-l-2 border-[#EAEEF4] ml-2">
                 <div className="relative pl-7 mb-8 group">
                   <div className="absolute -left-[11px] top-1 w-5 h-5 bg-brand-blue rounded-full flex items-center justify-center border-[3px] border-white shadow-sm">
-                    <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-white rounded-full" />
                   </div>
                   <p className="text-[13px] text-grey-50 mb-1">17 Nov 2021</p>
                   <p className="font-semibold text-brand-navy text-[14px] mb-3 group-hover:text-brand-blue cursor-pointer transition-colors">Installation or inspection of your thermostat</p>
-                  <div className="w-full h-28 bg-[#EAEEF4] rounded-[10px]"></div>
+                  <div className="w-full h-28 bg-[#EAEEF4] rounded-[10px]" />
                 </div>
                 <div className="relative pl-7 mb-8 group">
                   <div className="absolute -left-[11px] top-1 w-5 h-5 bg-brand-blue rounded-full flex items-center justify-center border-[3px] border-white shadow-sm">
-                    <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-white rounded-full" />
                   </div>
                   <p className="text-[13px] text-grey-50 mb-1">16 Nov 2021</p>
                   <p className="font-semibold text-brand-navy text-[14px] group-hover:text-brand-blue cursor-pointer transition-colors">Installation of the new air conditioning system</p>
                 </div>
                 <div className="relative pl-7 group">
                   <div className="absolute -left-[11px] top-1 w-5 h-5 bg-brand-blue rounded-full flex items-center justify-center border-[3px] border-white shadow-sm">
-                    <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-white rounded-full" />
                   </div>
                   <p className="text-[13px] text-grey-50 mb-1">16 Nov 2021</p>
                   <p className="font-semibold text-brand-navy text-[14px] group-hover:text-brand-blue cursor-pointer transition-colors">Evaluation and removal of the old system</p>
