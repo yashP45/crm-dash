@@ -12,6 +12,10 @@ export default function Sidebar() {
   const isDashboard = pathname === "/";
   const isDeals = pathname.startsWith("/deals");
   const isCustomers = pathname.startsWith("/customers");
+  const isTasks = pathname.startsWith("/tasks");
+  const isCalendar = pathname.startsWith("/calendar");
+  const isNotifications = pathname.startsWith("/notifications");
+  const isSettings = pathname.startsWith("/settings");
 
   return (
     <aside className="w-[90px] bg-white border-r border-[#EAEEF4] h-[100dvh] fixed left-0 top-0 flex flex-col items-center z-50">
@@ -46,22 +50,26 @@ export default function Sidebar() {
           <User className={isCustomers ? activeIconClasses : iconClasses} />
         </Link>
 
-        <button className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-colors">
-          <ListTodo className={iconClasses} />
-        </button>
+        <Link href="/tasks" className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-all relative">
+          {isTasks && <div className="absolute inset-0 bg-brand-blue rounded-full shadow-brand-blue/30 shadow-lg"></div>}
+          <ListTodo className={isTasks ? activeIconClasses : iconClasses} />
+        </Link>
 
-        <button className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-colors">
-          <Calendar className={iconClasses} />
-        </button>
+        <Link href="/calendar" className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-all relative">
+          {isCalendar && <div className="absolute inset-0 bg-brand-blue rounded-full shadow-brand-blue/30 shadow-lg"></div>}
+          <Calendar className={isCalendar ? activeIconClasses : iconClasses} />
+        </Link>
 
-        <button className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-colors relative">
-          <Bell className={iconClasses} />
-          <span className="absolute top-3 right-3 w-2 h-2 bg-brand-pink rounded-full border-2 border-white z-20"></span>
-        </button>
+        <Link href="/notifications" className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-all relative">
+          {isNotifications && <div className="absolute inset-0 bg-brand-blue rounded-full shadow-brand-blue/30 shadow-lg"></div>}
+          <Bell className={isNotifications ? activeIconClasses : iconClasses} />
+          {!isNotifications && <span className="absolute top-3 right-3 w-2 h-2 bg-brand-pink rounded-full border-2 border-white z-20"></span>}
+        </Link>
 
-        <button className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-colors mt-auto">
-          <Settings className={iconClasses} />
-        </button>
+        <Link href="/settings" className="w-12 h-12 bg-white border border-transparent hover:border-brand-blue rounded-full flex items-center justify-center group transition-all relative mt-auto">
+          {isSettings && <div className="absolute inset-0 bg-brand-blue rounded-full shadow-brand-blue/30 shadow-lg"></div>}
+          <Settings className={isSettings ? activeIconClasses : iconClasses} />
+        </Link>
       </nav>
     </aside>
   );

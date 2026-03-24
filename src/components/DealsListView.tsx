@@ -6,21 +6,33 @@ import EditDealModal from "./EditDealModal";
 
 // Extracted from screenshot to replicate the exact table rows
 const dealsData = [
-  { id: 1, name: "475 Spruce Drive, Pittsburgh, PA 23592", area: "100 M²", date: "Nov 14, 2021 07:00 AM", price: "$6000", status: "IN PROGRESS" },
-  { id: 2, name: "1952 Chicago Avenue, Fresno, CA 93711", area: "100 M²", date: "Nov 15, 2021 08:00 AM", price: "$6000", status: "CLOSED" },
-  { id: 3, name: "4409 Haul Road, Saint Paul, MN 55102", area: "100 M²", date: "Nov 16, 2021 09:00 AM", price: "$6000", status: "IN PROGRESS" },
-  { id: 4, name: "579 Godfrey Street, Monitor, OR 97071", area: "100 M²", date: "Nov 17, 2021 10:00 AM", price: "$6000", status: "CLOSED" },
-  { id: 5, name: "2705 Cantebury Drive, New York, NY 10011", area: "100 M²", date: "Nov 20, 2021 07:00 AM", price: "$6000", status: "IN PROGRESS" },
-  { id: 6, name: "579 Godfrey Street, Monitor, OR 97071", area: "100 M²", date: "Nov 17, 2021 10:00 AM", price: "$6000", status: "CLOSED" },
-  { id: 7, name: "2705 Cantebury Drive, New York, NY 10011", area: "100 M²", date: "Nov 20, 2021 07:00 AM", price: "$6000", status: "IN PROGRESS" },
+  { id: 1, name: "475 Spruce Drive, Pittsburgh, PA 23592",    address: "475 Spruce Drive",    city: "Pittsburgh", state: "PA", zip: "23592", area: "100 M²", roomArea: "100", people: 4,  date: "Nov 14, 2021 07:00 AM", appointmentDate: "Nov 14, 2021 07:00", price: "$6000", priceNum: 6000, status: "IN PROGRESS", progress: "In Progress", roomAccess: "Keys with doorman", specialInstructions: "" },
+  { id: 2, name: "1952 Chicago Avenue, Fresno, CA 93711",     address: "1952 Chicago Avenue",  city: "Fresno",     state: "CA", zip: "93711", area: "100 M²", roomArea: "100", people: 6,  date: "Nov 15, 2021 08:00 AM", appointmentDate: "Nov 15, 2021 08:00", price: "$6000", priceNum: 6000, status: "CLOSED",      progress: "Completed",   roomAccess: "Smart Lock",         specialInstructions: "" },
+  { id: 3, name: "4409 Haul Road, Saint Paul, MN 55102",     address: "4409 Haul Road",       city: "Saint Paul", state: "MN", zip: "55102", area: "100 M²", roomArea: "100", people: 8,  date: "Nov 16, 2021 09:00 AM", appointmentDate: "Nov 16, 2021 09:00", price: "$6000", priceNum: 6000, status: "IN PROGRESS", progress: "In Progress", roomAccess: "Keys with doorman", specialInstructions: "" },
+  { id: 4, name: "579 Godfrey Street, Monitor, OR 97071",    address: "579 Godfrey Street",   city: "Monitor",    state: "OR", zip: "97071", area: "100 M²", roomArea: "100", people: 3,  date: "Nov 17, 2021 10:00 AM", appointmentDate: "Nov 17, 2021 10:00", price: "$6000", priceNum: 6000, status: "CLOSED",      progress: "Completed",   roomAccess: "Building Reception",specialInstructions: "" },
+  { id: 5, name: "2705 Cantebury Drive, New York, NY 10011", address: "2705 Cantebury Drive", city: "New York",   state: "NY", zip: "10011", area: "100 M²", roomArea: "100", people: 10, date: "Nov 20, 2021 07:00 AM", appointmentDate: "Nov 20, 2021 07:00", price: "$6000", priceNum: 6000, status: "IN PROGRESS", progress: "In Progress", roomAccess: "Smart Lock",         specialInstructions: "" },
+  { id: 6, name: "579 Godfrey Street, Monitor, OR 97071",    address: "579 Godfrey Street",   city: "Monitor",    state: "OR", zip: "97071", area: "100 M²", roomArea: "100", people: 5,  date: "Nov 17, 2021 10:00 AM", appointmentDate: "Nov 17, 2021 10:00", price: "$6000", priceNum: 6000, status: "CLOSED",      progress: "Completed",   roomAccess: "Keys with doorman", specialInstructions: "" },
+  { id: 7, name: "2705 Cantebury Drive, New York, NY 10011", address: "2705 Cantebury Drive", city: "New York",   state: "NY", zip: "10011", area: "100 M²", roomArea: "100", people: 7,  date: "Nov 20, 2021 07:00 AM", appointmentDate: "Nov 20, 2021 07:00", price: "$6000", priceNum: 6000, status: "IN PROGRESS", progress: "In Progress", roomAccess: "Building Reception",specialInstructions: "" },
 ];
 
 export default function DealsListView() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedDeal, setSelectedDeal] = useState<any>(null);
 
-  const handleEdit = (deal: any) => {
-    setSelectedDeal(deal);
+  const handleEdit = (deal: typeof dealsData[0]) => {
+    setSelectedDeal({
+      address: deal.address,
+      city: deal.city,
+      state: deal.state,
+      zip: deal.zip,
+      roomArea: deal.roomArea,
+      people: deal.people,
+      appointmentDate: deal.appointmentDate,
+      specialInstructions: deal.specialInstructions,
+      roomAccess: deal.roomAccess,
+      price: deal.priceNum,
+      progress: deal.progress,
+    });
     setIsEditModalOpen(true);
   };
 
