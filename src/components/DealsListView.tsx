@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Pencil, Filter, ChevronDown } from "lucide-react";
+import { Filter, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import EditDealModal from "./EditDealModal";
 
@@ -92,7 +92,7 @@ export default function DealsListView() {
                     onClick={() => handleEdit(deal)}
                     className="w-10 h-10 rounded-full flex items-center border border-transparent justify-center text-grey-50 hover:text-brand-blue hover:bg-grey-10 transition-colors"
                   >
-                    <Pencil className="w-[18px] h-[18px]" />
+                    <img src="/edit-icon.png" alt="Edit" className="w-[18px] h-[18px]" />
                   </button>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function DealsListView() {
                   onClick={() => handleEdit(deal)}
                   className="w-9 h-9 rounded-full flex items-center justify-center text-grey-50 hover:text-brand-blue hover:bg-grey-10 transition-colors shrink-0"
                 >
-                  <Pencil className="w-4 h-4" />
+                  <img src="/edit-icon.png" alt="Edit" className="w-4 h-4" />
                 </button>
               </div>
               <div className="flex items-center justify-between mt-3 pt-3 border-t border-[#EAEEF4]">

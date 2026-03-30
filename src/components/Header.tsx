@@ -3,10 +3,11 @@ import { useState, useRef, useEffect } from "react";
 import { Search, Plus, Briefcase, Users, ArrowRight, X } from "lucide-react";
 import AddCustomerModal from "./AddCustomerModal";
 import AddDealModal from "./AddDealModal";
+import AddTaskModal from "./AddTaskModal";
 
 interface HeaderProps {
   title?: string;
-  primaryAction?: "dropdown" | "deal" | "customer" | "none";
+  primaryAction?: "dropdown" | "deal" | "customer" | "task" | "none";
   leftBg?: string;
   rightBg?: string;
 }
@@ -20,6 +21,7 @@ export default function Header({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isCustomerModalOpen, setIsCustomerModalOpen] = useState(false);
   const [isDealModalOpen, setIsDealModalOpen] = useState(false);
+  const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -59,6 +61,16 @@ export default function Header({
             className="bg-brand-blue hover:bg-brand-blue/90 text-white h-10 md:h-12 px-4 md:px-6 rounded-full flex items-center gap-2 transition-colors shadow-md shadow-brand-blue/20 text-sm md:text-base"
           >
             <span className="hidden sm:inline">Add New Customer</span>
+            <Plus className="w-4 h-4 opacity-80" />
+          </button>
+        )}
+
+        {primaryAction === "task" && (
+          <button
+            onClick={() => setIsTaskModalOpen(true)}
+            className="bg-brand-blue hover:bg-brand-blue/90 text-white h-10 md:h-12 px-4 md:px-6 rounded-full flex items-center gap-2 transition-colors shadow-md shadow-brand-blue/20 text-sm md:text-base"
+          >
+            <span className="hidden sm:inline">Add New Task</span>
             <Plus className="w-4 h-4 opacity-80" />
           </button>
         )}
@@ -128,6 +140,7 @@ export default function Header({
 
       <AddCustomerModal isOpen={isCustomerModalOpen} onClose={() => setIsCustomerModalOpen(false)} />
       <AddDealModal isOpen={isDealModalOpen} onClose={() => setIsDealModalOpen(false)} />
+      <AddTaskModal isOpen={isTaskModalOpen} onClose={() => setIsTaskModalOpen(false)} />
     </header>
   );
 }

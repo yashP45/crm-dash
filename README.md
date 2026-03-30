@@ -15,6 +15,61 @@ This repository contains the frontend implementation of the UniSouk CRM Dashboar
 - **Mock Data**: Typed structures representing Deals, Customers, Tasks, and Project Progress are housed in `src/lib/mockData.ts` simulating a real API response shape.
 - **Design Accuracy**: Used exact Tailwind `var` overrides based on the style guide provided (`--color-brand-blue`, `--color-brand-green`, etc.) implementing matching border radiuses, typography scaling, and soft multi-layered drop shadows.
 
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+  U[User / Browser] -->|Request route| N[Next.js App Router]
+
+  subgraph APP["src/app (routes)"]
+    L["layout.tsx<br/>Root layout (App Shell)"]
+    P0["page.tsx<br/>Dashboard (/ )"]
+    PD["deals/page.tsx<br/>Deals list (/deals)"]
+    PDid["deals/[id]/page.tsx<br/>Deal detail (/deals/:id)"]
+    PC["customers/page.tsx<br/>Customers list (/customers)"]
+    PCid["customers/[id]/page.tsx<br/>Customer detail (/customers/:id)"]
+  end
+
+  subgraph UI["src/components (UI + interaction)"]
+    SB["Sidebar.tsx<br/>nav state via usePathname()"]
+    H["Header.tsx<br/>actions + modal state"]
+    DL["DealsListView.tsx<br/>list + edit modal state"]
+    M["Modal.tsx<br/>reusable modal shell"]
+    Cards["Dashboard cards<br/>(NextAppointmentCard, RecentDealsCard, CustomersListCard, TasksCard, …)"]
+    Modals["Form modals<br/>(AddDealModal, EditDealModal, AddCustomerModal, …)"]
+  end
+
+  subgraph DATA["src/lib (data/utilities)"]
+    Mock["mockData.ts<br/>typed mock data"]
+    Utils["utils.ts<br/>cn() helper"]
+  end
+
+  N --> L
+  L --> SB
+  L -->|renders active route| P0
+  L -->|renders active route| PD
+  L -->|renders active route| PDid
+  L -->|renders active route| PC
+  L -->|renders active route| PCid
+
+  P0 --> H
+  P0 --> Cards
+  PD --> H
+  PD --> DL
+  PDid --> H
+  PC --> H
+  PCid --> H
+
+  H --> Modals
+  DL --> Modals
+  Modals --> M
+
+  Cards --> Mock
+  DL --> Mock
+  Modals --> Mock
+  UI --> Utils
+```
+
 ## Running Locally
 1. Clone the repository and navigate into this directory.
 2. Install dependencies:

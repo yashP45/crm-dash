@@ -1,18 +1,46 @@
 import Modal from "./Modal";
+import { useEffect, useState } from "react";
 
 interface AddTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialValues?: {
+    description: string;
+    dueDateLabel: string;
+  };
+  title?: string;
 }
 
-export default function AddTaskModal({ isOpen, onClose }: AddTaskModalProps) {
+export default function AddTaskModal({
+  isOpen,
+  onClose,
+  initialValues,
+  title = "Add New Task",
+}: AddTaskModalProps) {
+  const [description, setDescription] = useState("");
+  const [dueDateLabel, setDueDateLabel] = useState("");
+
+  useEffect(() => {
+    if (!isOpen) return;
+    setDescription(initialValues?.description ?? "");
+    setDueDateLabel(initialValues?.dueDateLabel ?? "");
+  }, [isOpen, initialValues?.description, initialValues?.dueDateLabel]);
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Add New Task">
-      <form className="flex flex-col gap-5 sm:gap-6 w-full" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
+    <Modal isOpen={isOpen} onClose={onClose} title={title}>
+      <form
+        className="flex flex-col gap-5 sm:gap-6 w-full"
+        onSubmit={(e) => {
+          e.preventDefault();
+          onClose();
+        }}
+      >
 
         <div>
           <textarea
             placeholder="Enter task description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className="w-full h-[100px] sm:h-[120px] rounded-xl border border-grey-10 bg-grey-bg p-3 sm:p-4 text-sm sm:text-base outline-none focus:border-brand-blue transition-colors text-grey-50 resize-none placeholder:text-grey-50"
           />
         </div>
@@ -22,6 +50,8 @@ export default function AddTaskModal({ isOpen, onClose }: AddTaskModalProps) {
           <input
             type="text"
             placeholder="Due date"
+            value={dueDateLabel}
+            onChange={(e) => setDueDateLabel(e.target.value)}
             className="w-full h-11 sm:h-14 rounded-xl border border-grey-10 bg-grey-bg px-3 sm:px-4 text-sm sm:text-base outline-none focus:border-brand-blue transition-colors text-grey-50 placeholder:text-grey-50"
           />
         </div>
